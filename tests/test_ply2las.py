@@ -1,8 +1,9 @@
 import os
 import logging
 import sys
+import subprocess
 
-lib_path = os.path.abspath(os.path.join('..', '..', 'scanner_3d'))
+lib_path = os.path.abspath(os.path.join('..'))
 sys.path.append(lib_path)
 
 from terrautils.metadata import get_terraref_metadata, clean_metadata
@@ -29,6 +30,7 @@ tmp_west_las = "/data/west_temp.las"
 merge_las = "/data/merged.las"
 convert_las = dire+"/converted.las"
 convert_pt_las = dire+"/converted_pts.las"
+
 
 
 def test_east_las():
@@ -64,3 +66,6 @@ def test_remove_file():
     os.remove(convert_pt_las)
     assert os.path.isfile(dire + '/east_temp.las') == False
 
+
+if __name__ == '__main__':
+    subprocess.call(['python -m pytest test_ply2las.py -p no:cacheprovider'], shell=True)

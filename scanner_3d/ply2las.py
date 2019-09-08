@@ -1,5 +1,3 @@
-__author__ = 'weiqin'
-
 import logging
 import subprocess
 import copy
@@ -68,7 +66,3 @@ def geo_referencing_las_for_eachpoint_in_mac(input_las_file, output_las_file, or
     output_file.Z = inFile.Z + long(math.floor(origin_coord['z']*100000))
 
     output_file.close()
-
-
-if __name__ == "__main__":
-    print ''
